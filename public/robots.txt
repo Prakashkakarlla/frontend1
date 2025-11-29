@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.jobfresh.in/sitemap.xml
+
+# Crawl-delay (optional, adjust if needed)
+Crawl-delay: 1
