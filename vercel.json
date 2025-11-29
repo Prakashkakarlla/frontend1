@@ -3,7 +3,7 @@
     "rewrites": [
         {
             "source": "/api/:path*",
-            "destination": "https://your-backend-api-url.com/api/:path*"
+            "destination": "https://api.jobfresh.in/api/:path*"
         },
         {
             "source": "/(.*)",
