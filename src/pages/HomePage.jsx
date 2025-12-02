@@ -66,8 +66,8 @@ const HomePage = () => {
     return (
         <div className="app-container">
             <main className="main-content">
-                {/* Top Banner Ad - gen_incontent_50 (ID: 960) */}
-                <EzoicAd placementId={960} className="ad-banner-top" />
+                {/* Top Banner Ad - incontent_50 (ID: 118) */}
+                <EzoicAd placementId={118} className="ad-banner-top" />
 
                 {/* Search and Filters */}
                 <div className="search-section">
