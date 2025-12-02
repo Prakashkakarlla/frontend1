@@ -66,8 +66,8 @@ const HomePage = () => {
     return (
         <div className="app-container">
             <main className="main-content">
-                {/* Top Banner Ad - incontent_50 (ID: 118) */}
-                <EzoicAd placementId={118} className="ad-banner-top" />
+                {/* Top Banner Ad - top_of_page (ID: 101) */}
+                <EzoicAd placementId={101} className="ad-banner-top" />
 
                 {/* Search and Filters */}
                 <div className="search-section">
@@ -99,8 +99,8 @@ const HomePage = () => {
                     </div>
                 )}
 
-                {/* Mid-Content Ad - gen_incontent_49 (ID: 959) */}
-                <EzoicAd placementId={959} className="ad-mid-content" />
+                {/* Mid-Content Ad - under_page_title (ID: 102) */}
+                <EzoicAd placementId={102} className="ad-mid-content" />
 
                 {/* Job Listings */}
                 {filteredJobs.length === 0 ? (
@@ -126,8 +126,8 @@ const HomePage = () => {
                     </>
                 )}
 
-                {/* Bottom Ad - gen_native_bottom (ID: 961) */}
-                <EzoicAd placementId={961} className="ad-bottom" />
+                {/* Bottom Ad - bottom_of_page (ID: 103) */}
+                <EzoicAd placementId={103} className="ad-bottom" />
             </main>
         </div>
     );
