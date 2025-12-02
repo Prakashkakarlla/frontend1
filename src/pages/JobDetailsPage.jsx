@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { extractIdFromSlug } from '../utils/slugify';
-import EzoicAd from '../components/EzoicAd';
 
 const JobDetailsPage = () => {
     const { id: slug } = useParams();
@@ -334,7 +333,13 @@ const JobDetailsPage = () => {
                         </section>
 
                         {/* Sidebar Ad - sidebar (ID: 104) */}
-                        <EzoicAd placementId={104} className="ad-sidebar" />
+                        <div id="ezoic-pub-ad-placeholder-104"></div>
+                        <script dangerouslySetInnerHTML={{
+                            __html: `
+                            ezstandalone.cmd.push(function () {
+                                ezstandalone.showAds(104);
+                            });
+                        `}} />
                     </div>
                 </div>
             </div>

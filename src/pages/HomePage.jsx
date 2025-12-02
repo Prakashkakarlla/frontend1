@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import JobCard from '../components/JobCard';
 import SearchFilter from '../components/SearchFilter';
 import Pagination from '../components/Pagination';
-import EzoicAd from '../components/EzoicAd';
 
 const JOBS_PER_PAGE = 6;
 
@@ -67,7 +66,13 @@ const HomePage = () => {
         <div className="app-container">
             <main className="main-content">
                 {/* Top Banner Ad - top_of_page (ID: 101) */}
-                <EzoicAd placementId={101} className="ad-banner-top" />
+                <div id="ezoic-pub-ad-placeholder-101"></div>
+                <script dangerouslySetInnerHTML={{
+                    __html: `
+                    ezstandalone.cmd.push(function () {
+                        ezstandalone.showAds(101);
+                    });
+                `}} />
 
                 {/* Search and Filters */}
                 <div className="search-section">
@@ -100,7 +105,13 @@ const HomePage = () => {
                 )}
 
                 {/* Mid-Content Ad - under_page_title (ID: 102) */}
-                <EzoicAd placementId={102} className="ad-mid-content" />
+                <div id="ezoic-pub-ad-placeholder-102"></div>
+                <script dangerouslySetInnerHTML={{
+                    __html: `
+                    ezstandalone.cmd.push(function () {
+                        ezstandalone.showAds(102);
+                    });
+                `}} />
 
                 {/* Job Listings */}
                 {filteredJobs.length === 0 ? (
@@ -127,7 +138,13 @@ const HomePage = () => {
                 )}
 
                 {/* Bottom Ad - bottom_of_page (ID: 103) */}
-                <EzoicAd placementId={103} className="ad-bottom" />
+                <div id="ezoic-pub-ad-placeholder-103"></div>
+                <script dangerouslySetInnerHTML={{
+                    __html: `
+                    ezstandalone.cmd.push(function () {
+                        ezstandalone.showAds(103);
+                    });
+                `}} />
             </main>
         </div>
     );
