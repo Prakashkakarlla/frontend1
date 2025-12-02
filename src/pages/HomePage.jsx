@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import JobCard from '../components/JobCard';
 import SearchFilter from '../components/SearchFilter';
 import Pagination from '../components/Pagination';
+import EzoicAd from '../components/EzoicAd';
 
 const JOBS_PER_PAGE = 6;
 
@@ -65,6 +66,9 @@ const HomePage = () => {
     return (
         <div className="app-container">
             <main className="main-content">
+                {/* Top Banner Ad - top_of_page (ID: 101) */}
+                <EzoicAd placementId={101} className="ad-banner-top" />
+
                 {/* Search and Filters */}
                 <div className="search-section">
                     <h2 className="section-title">Browse Jobs</h2>
@@ -95,6 +99,9 @@ const HomePage = () => {
                     </div>
                 )}
 
+                {/* Mid-Content Ad - under_page_title (ID: 102) */}
+                <EzoicAd placementId={102} className="ad-mid-content" />
+
                 {/* Job Listings */}
                 {filteredJobs.length === 0 ? (
                     <div className="empty-state">
@@ -118,6 +125,9 @@ const HomePage = () => {
                         />
                     </>
                 )}
+
+                {/* Bottom Ad - bottom_of_page (ID: 103) */}
+                <EzoicAd placementId={103} className="ad-bottom" />
             </main>
         </div>
     );

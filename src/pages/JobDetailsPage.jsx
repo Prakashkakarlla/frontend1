@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { extractIdFromSlug } from '../utils/slugify';
+import EzoicAd from '../components/EzoicAd';
 
 const JobDetailsPage = () => {
     const { id: slug } = useParams();
@@ -331,6 +332,9 @@ const JobDetailsPage = () => {
                                 Apply Now →
                             </a>
                         </section>
+
+                        {/* Sidebar Ad - sidebar (ID: 104) */}
+                        <EzoicAd placementId={104} className="ad-sidebar" />
                     </div>
                 </div>
             </div>
