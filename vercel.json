@@ -1,5 +1,11 @@
 {
     "buildCommand": "node node_modules/vite/bin/vite.js build",
+    "redirects": [
+        {
+            "source": "/ads.txt",
+            "destination": "https://srv.adstxtmanager.com/19390/jobfresh.in"
+        }
+    ],
     "rewrites": [
         {
             "source": "/api/:path*",
