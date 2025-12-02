@@ -333,8 +333,8 @@ const JobDetailsPage = () => {
                             </a>
                         </section>
 
-                        {/* Sidebar Ad (Placement 104) */}
-                        <EzoicAd placementId={104} className="ad-sidebar" />
+                        {/* Sidebar Ad (gen_incontent_48) */}
+                        <EzoicAd placementId={958} className="ad-sidebar" />
                     </div>
                 </div>
             </div>
