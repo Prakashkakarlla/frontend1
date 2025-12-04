@@ -168,8 +168,18 @@ const PrivacyPolicy = () => {
                     </p>
                 </section>
 
+                {/* Ezoic Privacy Policy Embed */}
                 <section>
-                    <h2>11. Changes to This Privacy Policy</h2>
+                    <h2>13. Ezoic Privacy Disclosures</h2>
+                    <p>
+                        The following section contains automated privacy disclosures from Ezoic, our advertising partner,
+                        including detailed information about data collection, cookies, and partner networks:
+                    </p>
+                    <div id="ezoic-privacy-policy-embed"></div>
+                </section>
+
+                <section>
+                    <h2>14. Changes to This Privacy Policy</h2>
                     <p>
                         We may update our Privacy Policy from time to time. We will notify you of any changes by
                         posting the new Privacy Policy on this page and updating the "Last Updated" date.
@@ -177,7 +187,7 @@ const PrivacyPolicy = () => {
                 </section>
 
                 <section>
-                    <h2>12. Contact Us</h2>
+                    <h2>15. Contact Us</h2>
                     <p>If you have any questions about this Privacy Policy, please contact us at:</p>
                     <ul>
                         <li>Email: privacy@jobfresh.in</li>
