@@ -190,7 +190,7 @@ const PrivacyPolicy = () => {
                     <h2>15. Contact Us</h2>
                     <p>If you have any questions about this Privacy Policy, please contact us at:</p>
                     <ul>
-                        <li>Email: privacy@jobfresh.in</li>
+                        <li>Email: kakarllaprakash108@gmail.com</li>
                         <li>Website: <a href="https://www.jobfresh.in">www.jobfresh.in</a></li>
                     </ul>
                 </section>
