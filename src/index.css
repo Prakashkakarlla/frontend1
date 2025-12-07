@@ -778,6 +778,7 @@ h2 {
     width: 70px;
     height: 70px;
 }
+
 /* ========================================
    JOB DETAILS PAGE STYLES
    ======================================== */
@@ -1951,3 +1952,6 @@ h2 {
     color: var(--accent-color);
     font-weight: 700;
 }
+
+/* Import additional styles */
+@import './styles/states.css';

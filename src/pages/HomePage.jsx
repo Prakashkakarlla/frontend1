@@ -1,53 +1,64 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import JobCard from '../components/JobCard';
 import SearchFilter from '../components/SearchFilter';
 import Pagination from '../components/Pagination';
+import SkeletonLoader from '../components/SkeletonLoader';
+import { useDebounce } from '../hooks/useDebounce';
 
 const JOBS_PER_PAGE = 6;
 
+// Fetch jobs from API
+const fetchJobs = async () => {
+    const response = await fetch('/api/jobs');
+    if (!response.ok) {
+        throw new Error('Failed to fetch jobs');
+    }
+    const data = await response.json();
+
+    // Sort jobs by postedDate (newest first)
+    return data.sort((a, b) => {
+        const dateA = new Date(a.postedDate);
+        const dateB = new Date(b.postedDate);
+        return dateB - dateA;
+    });
+};
+
 const HomePage = () => {
-    const [jobs, setJobs] = useState([]);
-    const [loading, setLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
 
-    useEffect(() => {
-        fetch('/api/jobs')
-            .then(res => res.json())
-            .then(data => {
-                // Sort jobs by postedDate (newest first)
-                const sortedJobs = data.sort((a, b) => {
-                    const dateA = new Date(a.postedDate);
-                    const dateB = new Date(b.postedDate);
-                    return dateB - dateA; // Descending order (newest first)
-                });
-                setJobs(sortedJobs);
-                setLoading(false);
-            })
-            .catch(err => {
-                console.error('Error fetching jobs:', err);
-                setLoading(false);
-            });
-    }, []);
+    // Debounce search query to avoid excessive filtering
+    const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
-    // Reset to page 1 when filters change
-    useEffect(() => {
-        setCurrentPage(1);
-    }, [searchQuery]);
-
-
-
-    // Filter jobs based on search
-    const filteredJobs = jobs.filter(job => {
-        const matchesSearch = !searchQuery ||
-            job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            job.companyInfo?.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            job.fullDescription?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            job.subtitle?.toLowerCase().includes(searchQuery.toLowerCase());
-
-        return matchesSearch;
+    // Use React Query for data fetching with caching
+    const { data: jobs = [], isLoading, isError, error, refetch } = useQuery({
+        queryKey: ['jobs'],
+        queryFn: fetchJobs,
+        staleTime: 5 * 60 * 1000, // 5 minutes
+        cacheTime: 10 * 60 * 1000, // 10 minutes
+        retry: 3,
+        retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
     });
+
+    // Memoize filtered jobs to avoid unnecessary recalculations
+    const filteredJobs = useMemo(() => {
+        if (!debouncedSearchQuery) return jobs;
+
+        const query = debouncedSearchQuery.toLowerCase();
+        return jobs.filter(job =>
+            job.title?.toLowerCase().includes(query) ||
+            job.companyInfo?.name?.toLowerCase().includes(query) ||
+            job.fullDescription?.toLowerCase().includes(query) ||
+            job.subtitle?.toLowerCase().includes(query)
+        );
+    }, [jobs, debouncedSearchQuery]);
+
+    // Reset to page 1 when search changes
+    React.useEffect(() => {
+        setCurrentPage(1);
+    }, [debouncedSearchQuery]);
 
     // Pagination logic
     const totalPages = Math.ceil(filteredJobs.length / JOBS_PER_PAGE);
@@ -60,7 +71,55 @@ const HomePage = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    if (loading) return <div className="loading">Loading jobs...</div>;
+    // Show skeleton loaders while loading
+    if (isLoading) {
+        return (
+            <div className="app-container">
+                <main className="main-content">
+                    {/* Top Banner Ad */}
+                    <div id="ezoic-pub-ad-placeholder-101"></div>
+                    <script dangerouslySetInnerHTML={{
+                        __html: `
+                        ezstandalone.cmd.push(function () {
+                            ezstandalone.showAds(101);
+                        });
+                    `}} />
+
+                    <div className="search-section">
+                        <h2 className="section-title">Browse Jobs</h2>
+                        <SearchFilter
+                            searchQuery={searchQuery}
+                            setSearchQuery={setSearchQuery}
+                        />
+                    </div>
+
+                    <div className="job-grid">
+                        {[...Array(6)].map((_, index) => (
+                            <SkeletonLoader key={index} />
+                        ))}
+                    </div>
+                </main>
+            </div>
+        );
+    }
+
+    // Show error state with retry button
+    if (isError) {
+        return (
+            <div className="app-container">
+                <main className="main-content">
+                    <div className="error-state">
+                        <div className="error-icon">⚠️</div>
+                        <h2>Failed to Load Jobs</h2>
+                        <p>{error.message || 'Something went wrong. Please try again.'}</p>
+                        <button onClick={() => refetch()} className="retry-button">
+                            Retry
+                        </button>
+                    </div>
+                </main>
+            </div>
+        );
+    }
 
     return (
         <div className="app-container">
