@@ -51,10 +51,10 @@ const PrivacyPolicy = () => {
                 </section>
 
                 <section>
-                    <h2>4. Third-Party Advertising - Ezoic</h2>
+                    <h2>4. Third-Party Advertising - Google AdSense</h2>
                     <p>
-                        We use Ezoic, a third-party advertising partner, to display advertisements on our website.
-                        Ezoic uses cookies and other tracking technologies to:
+                        We use Google AdSense, a third-party advertising service, to display advertisements on our website.
+                        Google AdSense uses cookies and other tracking technologies to:
                     </p>
                     <ul>
                         <li>Serve personalized advertisements based on your interests</li>
@@ -63,20 +63,21 @@ const PrivacyPolicy = () => {
                         <li>Collect data about your browsing behavior across different websites</li>
                     </ul>
                     <p>
-                        For more information about Ezoic's privacy practices, please visit:{' '}
-                        <a href="https://www.ezoic.com/privacy-policy/" target="_blank" rel="noopener noreferrer">
-                            Ezoic Privacy Policy
+                        For more information about Google's privacy practices, please visit:{' '}
+                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+                            Google Privacy Policy
                         </a>
                     </p>
 
-                    <h3>4.1 Data Collected by Ezoic</h3>
-                    <p>Ezoic may collect and process the following information:</p>
+                    <h3>4.1 Data Collected by Google AdSense</h3>
+                    <p>Google AdSense may collect and process the following information:</p>
                     <ul>
                         <li>IP address and device identifiers</li>
                         <li>Browser type and settings</li>
                         <li>Pages viewed and links clicked</li>
                         <li>Geographic location (approximate)</li>
                         <li>Time spent on pages</li>
+                        <li>Advertising identifiers (e.g., Android Advertising ID, Apple IDFA)</li>
                     </ul>
                 </section>
 
@@ -88,7 +89,7 @@ const PrivacyPolicy = () => {
                         <li>To improve user experience</li>
                         <li>To analyze website usage and trends</li>
                         <li>To display relevant job listings</li>
-                        <li>To serve personalized advertisements through Ezoic</li>
+                        <li>To serve personalized advertisements through Google AdSense</li>
                         <li>To comply with legal obligations</li>
                     </ul>
                 </section>
@@ -97,7 +98,7 @@ const PrivacyPolicy = () => {
                     <h2>6. Data Sharing and Disclosure</h2>
                     <p>We may share your information with:</p>
                     <ul>
-                        <li><strong>Ezoic:</strong> For advertising and analytics purposes</li>
+                        <li><strong>Google AdSense:</strong> For advertising purposes</li>
                         <li><strong>Analytics Providers:</strong> To understand website usage</li>
                         <li><strong>Legal Authorities:</strong> When required by law or to protect our rights</li>
                     </ul>
@@ -168,18 +169,22 @@ const PrivacyPolicy = () => {
                     </p>
                 </section>
 
-                {/* Ezoic Privacy Policy Embed */}
+                {/* Google AdSense Information */}
                 <section>
-                    <h2>13. Ezoic Privacy Disclosures</h2>
+                    <h2>11. Google AdSense Privacy</h2>
                     <p>
-                        The following section contains automated privacy disclosures from Ezoic, our advertising partner,
-                        including detailed information about data collection, cookies, and partner networks:
+                        We use Google AdSense to display advertisements. Google uses cookies to serve ads based on your prior visits
+                        to our website or other websites. You may opt out of personalized advertising by visiting
+                        {' '}<a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google Ads Settings</a>.
                     </p>
-                    <div id="ezoic-privacy-policy-embed"></div>
+                    <p>
+                        Alternatively, you can opt out of third-party cookies by visiting
+                        {' '}<a href="http://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">aboutads.info</a>.
+                    </p>
                 </section>
 
                 <section>
-                    <h2>14. Changes to This Privacy Policy</h2>
+                    <h2>12. Changes to This Privacy Policy</h2>
                     <p>
                         We may update our Privacy Policy from time to time. We will notify you of any changes by
                         posting the new Privacy Policy on this page and updating the "Last Updated" date.
@@ -187,7 +192,7 @@ const PrivacyPolicy = () => {
                 </section>
 
                 <section>
-                    <h2>15. Contact Us</h2>
+                    <h2>13. Contact Us</h2>
                     <p>If you have any questions about this Privacy Policy, please contact us at:</p>
                     <ul>
                         <li>Email: kakarllaprakash108@gmail.com</li>
