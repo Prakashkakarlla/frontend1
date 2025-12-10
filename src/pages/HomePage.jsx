@@ -5,6 +5,7 @@ import JobCard from '../components/JobCard';
 import SearchFilter from '../components/SearchFilter';
 import Pagination from '../components/Pagination';
 import SkeletonLoader from '../components/SkeletonLoader';
+import AdSense from '../components/AdSense';
 import { useDebounce } from '../hooks/useDebounce';
 
 const JOBS_PER_PAGE = 6;
@@ -72,15 +73,6 @@ const HomePage = () => {
         return (
             <div className="app-container">
                 <main className="main-content">
-                    {/* Top Banner Ad */}
-                    <div id="ezoic-pub-ad-placeholder-101"></div>
-                    <script dangerouslySetInnerHTML={{
-                        __html: `
-                        ezstandalone.cmd.push(function () {
-                            ezstandalone.showAds(101);
-                        });
-                    `}} />
-
                     <div className="search-section">
                         <h2 className="section-title">Browse Jobs</h2>
                         <SearchFilter
@@ -120,14 +112,13 @@ const HomePage = () => {
     return (
         <div className="app-container">
             <main className="main-content">
-                {/* Top Banner Ad - top_of_page (ID: 101) */}
-                <div id="ezoic-pub-ad-placeholder-101"></div>
-                <script dangerouslySetInnerHTML={{
-                    __html: `
-                    ezstandalone.cmd.push(function () {
-                        ezstandalone.showAds(101);
-                    });
-                `}} />
+                {/* Top Banner Ad */}
+                <AdSense
+                    adClient="ca-pub-4815031994479279"
+                    adSlot="YOUR_TOP_AD_SLOT"
+                    adFormat="auto"
+                    fullWidthResponsive={true}
+                />
 
                 {/* Search and Filters */}
                 <div className="search-section">
@@ -159,14 +150,13 @@ const HomePage = () => {
                     </div>
                 )}
 
-                {/* Mid-Content Ad - under_page_title (ID: 102) */}
-                <div id="ezoic-pub-ad-placeholder-102"></div>
-                <script dangerouslySetInnerHTML={{
-                    __html: `
-                    ezstandalone.cmd.push(function () {
-                        ezstandalone.showAds(102);
-                    });
-                `}} />
+                {/* Mid-Content Ad */}
+                <AdSense
+                    adClient="ca-pub-4815031994479279"
+                    adSlot="YOUR_MIDDLE_AD_SLOT"
+                    adFormat="auto"
+                    fullWidthResponsive={true}
+                />
 
                 {/* Job Listings */}
                 {filteredJobs.length === 0 ? (
@@ -192,14 +182,13 @@ const HomePage = () => {
                     </>
                 )}
 
-                {/* Bottom Ad - bottom_of_page (ID: 103) */}
-                <div id="ezoic-pub-ad-placeholder-103"></div>
-                <script dangerouslySetInnerHTML={{
-                    __html: `
-                    ezstandalone.cmd.push(function () {
-                        ezstandalone.showAds(103);
-                    });
-                `}} />
+                {/* Bottom Ad */}
+                <AdSense
+                    adClient="ca-pub-4815031994479279"
+                    adSlot="YOUR_BOTTOM_AD_SLOT"
+                    adFormat="auto"
+                    fullWidthResponsive={true}
+                />
             </main>
         </div>
     );
